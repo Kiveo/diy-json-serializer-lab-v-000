@@ -13,14 +13,12 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $(".js-next").on("click", function() {
-      // e.preventDefault();
       var nextId = parseInt($(".js-next").attr("data-id")) + 1; //configure the next id
       $.getJSON("/products/" + nextId + "/data", function(data) {
         $(".productName").text(data["name"]);
         $(".productPrice").text(data["price"]);
         $(".productDescription").text(data["description"]);
         $(".productInventory").text(data["inventory"]);
-        // Make sure to swap out the id paired to the hyperlink for the data-id
         $(".js-next").attr("data-id", data["id"]);
       });
     });
