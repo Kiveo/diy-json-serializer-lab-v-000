@@ -2,4 +2,7 @@
 <!-- Add a link to the products show page called "Next Product" that
  will use AJAX to load the data for the next product without refreshing the page -->
 
-<a href="#" class="next-product" id="Next Product">Next product</a>
+<div class="authorName"><%= @product.author.name %></div>
+<a href="#" class="js-next" data-id="<%= @product.id %>">Next Product</a>
+<h1 class="productTitle"><%= @product.title %></h1>
+<p class="productBody"><%= @product.description %></p>
