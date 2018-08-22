@@ -21,6 +21,11 @@ class ProductsController < ApplicationController
     Product.create(product_params)
     redirect_to products_path
   end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
   # get the product via id, then render the json data
   def product_data
     @product = Product.find(params[:id])
