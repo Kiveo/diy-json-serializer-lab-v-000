@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
   # get the product via id, then render the json data
-  def product_data
+  def data
     @product = Product.find(params[:id])
     render json: ProductSerializer.serialize(product)
   end
