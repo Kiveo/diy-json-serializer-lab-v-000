@@ -11,7 +11,7 @@
 <p class="productInventory"><%= @product.inventory %></p>
 
 <script type="text/javascript" charset="UTF-8">
-  $(function() {
+  $(function () {
     $(".js-next").on("click", function() {
       var nextId = parseInt($(".js-next").attr("data-id")) + 1; //configure the next id
       $.getJSON("/products/" + nextId + "/data", function(data) {
