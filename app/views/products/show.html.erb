@@ -2,12 +2,12 @@
 <!-- Add a link to the products show page called "Next Product" that
  will use AJAX to load the data for the next product without refreshing the page -->
 
-<div class="authorName"><%= @product.name %></div>
+<div class="productName"><%= @product.name %></div>
 
 <a href="#" class="js-next" data-id="<%= @product.id %>">Next Product</a>
 
-<h1 class="productTitle"><%= @product.price %></h1>
-<p class="productBody"><%= @product.description %></p>
+<h1 class="productPrice"><%= @product.price %></h1>
+<p class="productDescription"><%= @product.description %></p>
 <p class="productInventory"><%= @product.inventory %></p>
 
 <script type="text/javascript" charset="UTF-8">
@@ -15,7 +15,12 @@
     $(".js-next").on('click', function() {
       var nextId = parseInt($('.js-next').attr('data-id')) + 1; //configure the next id
       $.getJSON("/products/" + nextId + "/data", function(data) {
-
+        $(".productName").text(data["name"]);
+        $(".productPrice").text(data["price"]);
+        $(".productDescription").text(data["description"]);
+        $(".productInventory").text(data["inventory"]);
+        // Make sure to swap out the id paired to the hyperlink for the data-id
+        $(".js-next").attr("data-id", data[:id]);
       });
     })
   )};
